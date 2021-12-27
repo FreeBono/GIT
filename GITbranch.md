@@ -79,3 +79,53 @@
 - stash 란, 파일의 변경 내용을 일시적으로 기록해두는 영역. stash 를 사용하여 작업 트리와 인덱스 내에서 아직 커밋하지 않은 변경을 일시적으로 저장할 수 있음. 이 stash 에 저장된 변경 내용은 나중에 다시 불러와 원래의 브랜치나 다른 브랜치에 커밋할 수 있음.
 
 ![stash](GITbranch.assets/capture_stepup1_3_3.png)
+
+
+
+
+
+
+
+#### * 브랜치 통합하기
+
+브랜치 통합에는 merge, rebase 2가지 방법이 있음. 어느 쪽을 사용하냐에 따라 브랜치의 이력이 달라짐.
+
+
+
+1. #### merge
+
+   
+
+   merge를 사용하면 여러 개의 브랜치를 하나로 모을 수 있음.
+
+   ![브랜치](GITbranch.assets/capture_stepup1_4_1.png)
+
+   위 bugfix 브랜치를 master 브랜치로 병합할 때, master 브랜치의 상태가 분기시점으로부터 변경되어 있지 않으면 매우 쉽게 병합할 수 있음. bugfix 브랜치의 이력은 master 브랜치의 이력을 모두 포함하고 있기 때문에,  master 브랜치는 단순히 이동하기만 해도 bugfix 브랜치의 내용을 적용할 수 있음. (빨리감기 병합)
+
+   ![fast-forward(빨리감기) 병합](GITbranch.assets/capture_stepup1_4_2.png)
+
+   bugfix 브랜치를 분기한 이후 mastesr 브랜치가 변경되는 경우도 있음. 이 경우, master 브랜치 변경 내용과 bugfix 브랜치 변경 내용을 하나로 통합할 필요가 있음.
+
+   ![양쪽의 변경을 적용한 'merge commit(병합 커밋)'](GITbranch.assets/capture_stepup1_4_4.png)
+
+   
+
+   따라서 양쪽의 변경을 가져온 merge commit을 실행하게 됨. 병합 완료 후, 통합 브랜치인 master 브랜치로 통합된 이력이 위 그림과 같이 생기게 됨
+
+   ​		![image-20211227231918006](GITbranch.assets/image-20211227231918006.png)
+
+   
+
+2. #### rebase
+
+   bugfix 브랜치를 master 브랜치에 rebase 하면, bugfix 브랜치의 이력이 master 브랜치 뒤로 이동하게 됨. 
+
+   ![rebase를 사용하여 브랜치 통합](GITbranch.assets/capture_stepup1_4_9.png)
+
+   rebase만 하면 master의 위치는 유지, 
+
+   ![image-20211227232411067](GITbranch.assets/image-20211227232411067.png)
+
+
+
+​	
